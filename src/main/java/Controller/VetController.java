@@ -48,4 +48,14 @@ public class VetController implements IVetController{
         
         return listReturn;
     }
+    
+    public int getNextId(int idClinic){
+        int retorno = 0;
+        for(Vet a : DataSetClinic.data.get(idClinic).getVets()){
+            if(a.getId()>retorno){
+                retorno = a.getId();
+            }
+        }
+        return(retorno + 1);
+    }
 }

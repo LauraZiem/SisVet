@@ -48,4 +48,18 @@ public class AnimalController implements IAnimalController{
         
         return listReturn;
     }
+    
+    public int getNextId(int idClinic){
+        int retorno = 0;
+        for(Animal a : DataSetClinic.data.get(idClinic).getAnimals()){
+            if(a.getId()>retorno){
+                retorno = a.getId();
+            }
+        }
+        return(retorno + 1);
+    }
+    
+    public ArrayList<Animal> getAnimals(int idClinic){
+        return DataSetClinic.data.get(idClinic).getAnimals();
+    }
 }
