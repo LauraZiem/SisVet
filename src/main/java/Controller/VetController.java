@@ -51,11 +51,15 @@ public class VetController implements IVetController{
     
     public int getNextId(int idClinic){
         int retorno = 0;
-        for(Vet a : DataSetClinic.data.get(idClinic).getVets()){
-            if(a.getId()>retorno){
-                retorno = a.getId();
+        for(Vet v : DataSetClinic.data.get(idClinic).getVets()){
+            if(v.getId()>retorno){
+                retorno = v.getId();
             }
         }
         return(retorno + 1);
+    }
+    
+    public ArrayList<Vet> getVets(int idClinic){
+        return DataSetClinic.data.get(idClinic).getVets();
     }
 }
