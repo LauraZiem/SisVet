@@ -40,6 +40,8 @@ public class ClinicView {
             
             System.out.println("1- Incluir clínica");
             System.out.println("2- Selecionar clínica");
+            System.out.println("3- Exportar Clínicas");
+            System.out.println("4- Importar Clínicas");
             System.out.println("0- SAIR");
             
             op = Integer.parseInt(sc.nextLine());
@@ -52,8 +54,13 @@ public class ClinicView {
                     this.SelectClinic();
                     this.ShowMenuClinic();
                     break;
+                case 3:
+                    this.clinicController.exportData();
+                    break;
+                case 4:
+                    this.clinicController.importData();
+                    break;
                 case 0:
-                    System.out.println("Encerrando Clínica...");
                     break;
                 default:
                     System.out.println("**************");
@@ -120,19 +127,18 @@ public class ClinicView {
                     VetView vetView = new VetView(this.clinicController.getClinicIndex(DataSetClinic.selectedClinic.getId()));
                     break;
                 case 2:
-                    //Chamar view do animal
+                    AnimalView animalView = new AnimalView();
                     break;
                 case 3:
                     //Chamar view do atendimento
                     break;
                 case 0:
-                    System.out.println("Saindo da clínica...");
                     break;
                 default:
                     System.out.println("**************");
                     System.out.println("Opção Inválida");
                     System.out.println("**************");
-                    opcao = 0;
+                    //opcao = 0;
                     break;
             }
         }while(opcao != 0);
